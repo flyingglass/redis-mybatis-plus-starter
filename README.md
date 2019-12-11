@@ -60,9 +60,9 @@ spring:
     dynamic:
       # 全局配置，数据源可覆盖
       druid:
-        initial-size: 1 # 初始连接数
-        max-active: 3 # 最大连接池数量
-        min-idle: 1 # 最小连接池数量
+        initial-size: 5 # 初始连接数
+        max-active: 10 # 最大连接池数量
+        min-idle: 5 # 最小连接池数量
         max-wait: 60000
         pool-prepared-statements: false
         validation-query: "SELECT 1"
@@ -102,6 +102,44 @@ mybatis-plus:
 
 ### 配置说明
 
-#### 配置redis
+#### 配置`Redis`作为`Mybatis`的二级缓存
+
+主要实现了`MybatisRedisCache`和`LoggingRedisCache`，其中`LoggingRedisCache`为`MybatisRedisCache`的装饰类，主要用日志输出，其中`MybatisRedisCache`实现了`Mybatis`二级缓存的`Cache`接口，通过`flushInterval`（精确到毫秒）参数控制缓存过期，缓存过期策略为`Redis`默认的`lazy`和定期删除`策略，默认的过期策略可能`expire`时间会出现微小偏差，几乎可以忽略。
+
+使用MybatisRedisCache需要如下配置：
+
+- 在`application.yml`添加`Redis`配置:
+```yml
+spring:
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
+```
+
+- 配置`CacheNamespace`，支持注解或`xml`配置（记得在`Mybatis-Plus`打开`cache-enabled`属性），演示注解例子:
+```java
+@CacheNamespace(
+        implementation = MybatisRedisCache.class,
+        properties = { @Property(
+                name = "flushInterval",
+                value = "5000"
+        )}
+)
+public interface TestMapper extends BaseMapper<Test> {
+
+}
+```
+
+- 可自定义`RedisTemplate`，控制`Cache`的序列化或者反序列，`starter`默认注入`spring-data-redis`默认的`RedisTemplate<Object, Object>`作为默认的`RedisTemplate`（可选）
+
+
 
 
