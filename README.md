@@ -138,7 +138,7 @@ public interface TestMapper extends BaseMapper<Test> {
 }
 ```
 
-- 可自定义`RedisTemplate`，控制`Cache`的序列化或者反序列，`starter`默认注入`spring-data-redis`默认的`RedisTemplate<Object, Object>`作为默认的`RedisTemplate`（可选）
+- 可自定义`RedisTemplate`，控制`Cache`的序列化或者反序列，项目默认会注入`spring-data-redis`默认的`RedisTemplate<Object, Object>`作为可选的`RedisTemplate Bean`（可选）
 
 
 #### 配置多数据源(参考Mybatis-Plus的多数据源)
