@@ -14,7 +14,7 @@ import java.sql.Timestamp;
  */
 @Component
 @ConditionalOnMissingBean(MetaObjectHandler.class)
-public class MyMetaObjectHandler implements MetaObjectHandler {
+public class DefaultMetaObjectHandler implements MetaObjectHandler {
     /**
      * 插入元对象字段填充（用于插入时对公共字段的填充）
      *
