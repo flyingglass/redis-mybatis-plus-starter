@@ -141,5 +141,74 @@ public interface TestMapper extends BaseMapper<Test> {
 - 可自定义`RedisTemplate`，控制`Cache`的序列化或者反序列，`starter`默认注入`spring-data-redis`默认的`RedisTemplate<Object, Object>`作为默认的`RedisTemplate`（可选）
 
 
+#### 配置多数据源(参考Mybatis-Plus的多数据源)
+
+- 简单样例，配置`application.yml`
+```yml
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          username: ${mysql.username}
+          password: ${mysql.password}
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://${mysql.host}:${mysql.port}/master_db
+
+        slave_1:
+          username: ${mysql.username}
+          password: ${mysql.password}
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://${mysql.host}:${mysql.port}/slave_db?
+```
+- 使用`@DS`注解进行切换，建议在`Service`层添加注解，使用样例:
+```java
+@DS("slave_1")
+public class TestServiceImpl extends ServiceImpl<TestMapper, Test> implements ITestService {
+
+}
+```
+
+#### 配置`phoenix`数据源，已针对`phoenix-core`进行`shaded repackage`解决`Springboot`兼容问题
+- 配置`pom.xml`
+```xml
+<dependency>
+    <groupId>com.fly</groupId>
+    <artifactId>phoenix-core-shaded</artifactId>
+    <version>1.0.0</version>
+    <exclusions>
+        <exclusion>
+            <groupId>org.apache.phoenix</groupId>
+            <artifactId>phoenix-core</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+```
+
+- 配置`application.yml`
+```yml
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          username: ${mysql.username}
+          password: ${mysql.password}
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://${mysql.host}:${mysql.port}/master_db
+
+        phoenix:
+          username:
+          password:
+          url: jdbc:phoenix:znode01,znode02,znode03:2181
+          driver-class-name: org.apache.phoenix.jdbc.PhoenixDriver
+          druid:
+            filters: stat
+            connection-properties:
+              schema: "\"TEST\""
+```
+
 
 
