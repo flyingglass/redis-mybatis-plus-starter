@@ -16,13 +16,30 @@
 轻松引入SpringBoot工程中，需要如下步骤:
 
 - 在`pom.xml`中引入依赖:
-```
+```xml
 <dependency>
     <groupId>com.fly</groupId>
     <artifactId>backend-starter-mybatis</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
+
+- 在应用主类中增加`@MapperScan(basePackages = "com.xxx.mapper")`注解，用于扫描`Mapper`的`Interface`，并且排除`DruidDataSourceAutoConfigure`
+
+```java
+@MapperScan(basePackages = "com.xxx.mapper")
+@SpringBootApplication(
+        exclude = DruidDataSourceAutoConfigure.class
+)
+public class Bootstrap {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Bootstrap.class, args);
+    }
+
+}
+```
+
 - 配置`application.yml`
 ```yml
 spring:
@@ -83,5 +100,8 @@ mybatis-plus:
       id-type: auto
 ```
 
+### 配置说明
+
+#### 配置redis
 
 
