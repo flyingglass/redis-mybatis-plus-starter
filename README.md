@@ -160,7 +160,7 @@ spring:
           username: ${mysql.username}
           password: ${mysql.password}
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://${mysql.host}:${mysql.port}/slave_db?
+          url: jdbc:mysql://${mysql.host}:${mysql.port}/slave_db
 ```
 - 使用`@DS`注解进行切换，建议在`Service`层添加注解，使用样例:
 ```java
