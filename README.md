@@ -214,3 +214,4 @@ spring:
 
 - `Starter`中的`BaseDO`和`DefaultMetaObjectHandler`会默认填充`gmtCreate`和`gmtUpdated`字段，可以自定义`MetaObjectHandler`的`Bean`进行覆盖。
 - 默认的`PhoenixSqlInjector`注入了`Upsert`方法对应`Phoenix`的`upsert`，后续的`Service`继承`PhoenixServiceImpl`即可复用`Mybatis-Plus`的原生的`Save`和`SaveBatch`方法
+- 针对`Phoenix`已向`mybatis-plus`提交`PR: https://github.com/baomidou/mybatis-plus/pull/1946`
