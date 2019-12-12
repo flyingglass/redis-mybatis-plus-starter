@@ -106,7 +106,7 @@ mybatis-plus:
 
 主要实现了`MybatisRedisCache`和`LoggingRedisCache`，其中`LoggingRedisCache`为`MybatisRedisCache`的装饰类，主要用日志输出，其中`MybatisRedisCache`实现了`Mybatis`二级缓存的`Cache`接口，通过`flushInterval`（精确到毫秒）参数控制缓存过期，缓存过期策略为`Redis`默认的`lazy`和定期删除策略，默认的过期策略可能`expire`时间会出现微小偏差，几乎可以忽略。
 
-使用MybatisRedisCache需要如下配置：
+使用`MybatisRedisCache`需要如下配置：
 
 - 在`application.yml`添加`Redis`配置:
 ```yml

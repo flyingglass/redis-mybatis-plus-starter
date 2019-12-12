@@ -28,6 +28,7 @@ public class Upsert extends AbstractMethod {
                 LEFT_BRACKET, RIGHT_BRACKET, null, COMMA);
         String valuesScript = SqlScriptUtils.convertTrim(tableInfo.getAllInsertSqlPropertyMaybeIf(null),
                 LEFT_BRACKET, RIGHT_BRACKET, null, COMMA);
+
         String sql = String.format(sqlMethod.getSql(), tableInfo.getTableName(), columnScript, valuesScript);
         SqlSource sqlSource = languageDriver.createSqlSource(configuration, sql, modelClass);
 
