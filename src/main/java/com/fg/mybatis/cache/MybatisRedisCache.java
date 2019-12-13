@@ -1,4 +1,4 @@
-package com.fly.mybatis.cache;
+package com.fg.mybatis.cache;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

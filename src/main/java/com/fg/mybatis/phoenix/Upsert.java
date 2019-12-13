@@ -1,4 +1,4 @@
-package com.fly.mybatis.phoenix;
+package com.fg.mybatis.phoenix;
 
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;

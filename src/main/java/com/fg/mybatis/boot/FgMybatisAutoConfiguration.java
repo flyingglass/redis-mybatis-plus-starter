@@ -1,9 +1,9 @@
-package com.fly.mybatis.boot;
+package com.fg.mybatis.boot;
 
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
-import com.fly.mybatis.cache.ApplicationContextHolder;
+import com.fg.mybatis.cache.ApplicationContextHolder;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 @Import(ApplicationContextHolder.class)
 @AutoConfigureAfter({MybatisPlusAutoConfiguration.class})
-public class FlyMybatisAutoConfiguration {
+public class FgMybatisAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean

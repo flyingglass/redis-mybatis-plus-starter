@@ -1,4 +1,4 @@
-package com.fly.mybatis.phoenix;
+package com.fg.mybatis.phoenix;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 

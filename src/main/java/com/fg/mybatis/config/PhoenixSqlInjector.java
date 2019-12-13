@@ -1,8 +1,8 @@
-package com.fly.mybatis.config;
+package com.fg.mybatis.config;
 
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.injector.DefaultSqlInjector;
-import com.fly.mybatis.phoenix.Upsert;
+import com.fg.mybatis.phoenix.Upsert;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 

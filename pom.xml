@@ -8,12 +8,18 @@
         <version>7</version>
     </parent>
 
-    <groupId>com.fly</groupId>
+    <groupId>com.fg</groupId>
     <artifactId>backend-starter-mybatis</artifactId>
     <version>1.0.0</version>
 
-    <name>backend-starter-mybatis</name>
+    <name>${project.artifactId}</name>
     <description>Mybatis project for Spring Boot</description>
+
+    <scm>
+        <url>https://github.com/FlyingGlass</url>
+        <connection>git@github.com:FlyingGlass/backend-starter-mybatis.git</connection>
+        <developerConnection>https://github.com/FlyingGlass/backend-starter-mybatis.git</developerConnection>
+    </scm>
 
     <developers>
         <developer>
