@@ -24,9 +24,9 @@ public class MybatisRedisCache implements Cache {
     private long flushInterval = 0L;
 
 
-    private RedisTemplate<Object, Object> redisTemplate;
+    private RedisTemplate redisTemplate;
 
-    private RedisTemplate<Object, Object> getRedisTemplate() {
+    private RedisTemplate getRedisTemplate() {
         if (null == redisTemplate) {
             redisTemplate = ApplicationContextHolder.getBean("redisTemplate", RedisTemplate.class);
         }
@@ -63,12 +63,10 @@ public class MybatisRedisCache implements Cache {
     @SuppressWarnings("unchecked")
     public void putObject(Object key, Object value) {
         try {
-            RedisTemplate<Object, Object> redisTemplate = getRedisTemplate();
-
-            redisTemplate.opsForHash().put(getId(), key.toString(), value);
+            getRedisTemplate().opsForHash().put(getId(), key.toString(), value);
 
             if (flushInterval > 0L) {
-                redisTemplate.expire(getId(), flushInterval, TimeUnit.MICROSECONDS);
+                getRedisTemplate().expire(getId(), flushInterval, TimeUnit.MICROSECONDS);
             }
         }
         catch (Throwable t) {
@@ -83,6 +81,7 @@ public class MybatisRedisCache implements Cache {
      * @return
      */
     @Override
+    @SuppressWarnings("unchecked")
     public Object getObject(Object key) {
         try {
             return getRedisTemplate().opsForHash().get(getId(), key.toString());
@@ -114,6 +113,7 @@ public class MybatisRedisCache implements Cache {
      * Clears this cache instance
      */
     @Override
+    @SuppressWarnings("unchecked")
     public void clear() {
         getRedisTemplate().delete(getId());
     }
@@ -124,6 +124,7 @@ public class MybatisRedisCache implements Cache {
      * @return
      */
     @Override
+    @SuppressWarnings("unchecked")
     public int getSize() {
         return getRedisTemplate().opsForHash().size(getId()).intValue();
     }
