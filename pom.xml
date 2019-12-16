@@ -8,12 +8,12 @@
         <version>7</version>
     </parent>
 
-    <groupId>com.github.flyingglass.mybatis</groupId>
-    <artifactId>backend-starter-mybatis</artifactId>
+    <groupId>com.github.flyingglass</groupId>
+    <artifactId>backend-starter-mybatis-plus</artifactId>
     <version>1.0.0</version>
 
     <name>${project.artifactId}</name>
-    <description>Mybatis project for Spring Boot</description>
+    <description>Mybatis Plus project for Spring Boot</description>
 
     <scm>
         <url>https://github.com/FlyingGlass</url>
@@ -45,12 +45,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <!--        mybatis-plus-->
