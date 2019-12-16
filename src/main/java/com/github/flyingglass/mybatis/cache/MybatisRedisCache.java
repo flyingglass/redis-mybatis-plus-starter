@@ -66,7 +66,7 @@ public class MybatisRedisCache implements Cache {
             getRedisTemplate().opsForHash().put(getId(), key.toString(), value);
 
             if (flushInterval > 0L) {
-                getRedisTemplate().expire(getId(), flushInterval, TimeUnit.MICROSECONDS);
+                getRedisTemplate().expire(getId(), flushInterval, TimeUnit.MILLISECONDS);
             }
         }
         catch (Throwable t) {
