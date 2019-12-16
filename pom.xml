@@ -17,8 +17,8 @@
 
     <scm>
         <url>https://github.com/FlyingGlass</url>
-        <connection>git@github.com:FlyingGlass/backend-starter-mybatis.git</connection>
-        <developerConnection>https://github.com/FlyingGlass/backend-starter-mybatis.git</developerConnection>
+        <connection>git@github.com:FlyingGlass/backend-starter-mybatis-plus.git</connection>
+        <developerConnection>https://github.com/FlyingGlass/backend-starter-mybatis-plus.git</developerConnection>
     </scm>
 
     <developers>
