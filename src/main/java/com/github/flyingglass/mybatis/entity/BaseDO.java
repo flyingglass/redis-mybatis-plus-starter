@@ -1,4 +1,4 @@
-package com.fg.mybatis.entity;
+package com.github.flyingglass.mybatis.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

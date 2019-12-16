@@ -1,4 +1,4 @@
-package com.fg.mybatis.phoenix;
+package com.github.flyingglass.mybatis.phoenix;
 
 /**
  * @author fly

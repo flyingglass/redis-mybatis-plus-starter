@@ -1,4 +1,4 @@
-package com.fg.mybatis.cache;
+package com.github.flyingglass.mybatis.cache;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

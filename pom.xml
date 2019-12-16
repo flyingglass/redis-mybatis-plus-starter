@@ -8,7 +8,7 @@
         <version>7</version>
     </parent>
 
-    <groupId>com.fg</groupId>
+    <groupId>com.github.flyingglass.mybatis</groupId>
     <artifactId>backend-starter-mybatis</artifactId>
     <version>1.0.0</version>
 

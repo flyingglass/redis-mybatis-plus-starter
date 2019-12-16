@@ -1,9 +1,9 @@
-package com.fg.mybatis.boot;
+package com.github.flyingglass.mybatis.boot;
 
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
-import com.fg.mybatis.cache.ApplicationContextHolder;
+import com.github.flyingglass.mybatis.cache.ApplicationContextHolder;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;

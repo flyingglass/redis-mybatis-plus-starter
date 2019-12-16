@@ -1,4 +1,4 @@
-package com.fg.mybatis.phoenix;
+package com.github.flyingglass.mybatis.phoenix;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 

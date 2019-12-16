@@ -1,4 +1,4 @@
-package com.fg.mybatis.cache;
+package com.github.flyingglass.mybatis.cache;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.cache.decorators.LoggingCache;
