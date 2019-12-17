@@ -1,8 +1,10 @@
 package com.github.flyingglass.mybatis.boot;
 
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.github.flyingglass.mybatis.cache.ApplicationContextHolder;
+import com.github.flyingglass.mybatis.config.DefaultMetaObjectHandler;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -23,5 +25,12 @@ public class FgMybatisAutoConfiguration {
     @ConditionalOnMissingBean
     public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor();
+    }
+
+
+    @Bean
+    @ConditionalOnMissingBean
+    public MetaObjectHandler metaObjectHandler() {
+        return new DefaultMetaObjectHandler();
     }
 }
