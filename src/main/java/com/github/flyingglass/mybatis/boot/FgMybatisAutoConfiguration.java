@@ -12,9 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * @author fly
- * @date 2019/12/10 19:58
- * desc:
+ * AutoConfiguration
+ * @author: fly
  */
 @Configuration
 @Import(ApplicationContextHolder.class)

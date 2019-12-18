@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author fly
+ * @author: fly
  */
 @Slf4j
 public class MybatisRedisCache implements Cache {
@@ -38,9 +38,6 @@ public class MybatisRedisCache implements Cache {
      */
     private final String id;
 
-    /**
-     * @param id
-     */
     public MybatisRedisCache(String id) {
         if (id == null) {
             throw new IllegalArgumentException("Cache instances require an ID");
@@ -55,9 +52,6 @@ public class MybatisRedisCache implements Cache {
 
     /**
      * Put query result to redis
-     *
-     * @param key
-     * @param value
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -76,9 +70,6 @@ public class MybatisRedisCache implements Cache {
 
     /**
      * Get cached query result from redis
-     *
-     * @param key
-     * @return
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -93,9 +84,6 @@ public class MybatisRedisCache implements Cache {
 
     /**
      * Remove cached query result from redis
-     *
-     * @param key
-     * @return
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -120,8 +108,6 @@ public class MybatisRedisCache implements Cache {
 
     /**
      * This method is not used
-     *
-     * @return
      */
     @Override
     @SuppressWarnings("unchecked")

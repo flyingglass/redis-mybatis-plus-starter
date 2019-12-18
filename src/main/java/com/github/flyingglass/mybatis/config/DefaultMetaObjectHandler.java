@@ -8,9 +8,8 @@ import org.springframework.stereotype.Component;
 import java.sql.Timestamp;
 
 /**
- * @author fly
- * @date 2019/5/28 11:12
- * description: 自定义字段填充，gmt_updated和gmt_create自动填充
+ * 自定义字段填充，gmt_updated和gmt_create自动填充
+ * @author: fly
  */
 public class DefaultMetaObjectHandler implements MetaObjectHandler {
     /**

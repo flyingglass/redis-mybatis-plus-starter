@@ -5,9 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * @author fly
- * @date 2019/12/11 16:44
- * desc:
+ * @author: fly
  */
 public class ApplicationContextHolder implements ApplicationContextAware {
 
