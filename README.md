@@ -1,4 +1,4 @@
-# backend-starter-mybatis
+# redis-mybatis-plus-starter
 
 ## 简介
 该项目主要利用SpringBoot的自动化配置特性来实现快速的将Mybatis-Plus + 多数据源 + Redis二级缓存 + Phoenix引入Springboot项目中，简化原生Mybatis-Plus整合多数据源、Mybatis Redis二级缓存和Phoenix使用。
@@ -171,7 +171,7 @@ public class TestServiceImpl extends ServiceImpl<TestMapper, Test> implements IT
 }
 ```
 
-#### 默认的自定义特性
+#### 特性和扩展
 
 - `Starter`中的`BaseDO`和`DefaultMetaObjectHandler`会默认填充`gmtCreate`和`gmtUpdated`字段，可以自定义`MetaObjectHandler`的`Bean`进行覆盖。
-- `Mybatis-Plus`整合`Phoenix`参考`https://github.com/FlyingGlass/phoenix-mybatis-plus-starter`
+- [`Mybatis-Plus`整合`Phoenix`](https://github.com/FlyingGlass/phoenix-mybatis-plus-starter)
