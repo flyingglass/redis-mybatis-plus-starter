@@ -9,16 +9,25 @@
     </parent>
 
     <groupId>com.github.flyingglass</groupId>
-    <artifactId>backend-starter-mybatis-plus</artifactId>
+    <artifactId>redis-mybatis-plus-starter</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
     <description>Mybatis Plus project for Spring Boot</description>
 
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <scm>
         <url>https://github.com/FlyingGlass</url>
-        <connection>git@github.com:FlyingGlass/backend-starter-mybatis-plus.git</connection>
-        <developerConnection>https://github.com/FlyingGlass/backend-starter-mybatis-plus.git</developerConnection>
+        <connection>git@github.com:FlyingGlass/redis-mybatis-plus-starter.git</connection>
+        <developerConnection>https://github.com/FlyingGlass/redis-mybatis-plus-starter.git</developerConnection>
     </scm>
 
     <developers>
@@ -34,10 +43,8 @@
         <java.version>1.8</java.version>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
         <dynamic-datasource.version>2.5.4</dynamic-datasource.version>
-        <jackson-databind.version>2.9.0</jackson-databind.version>
         <druid.version>1.1.16</druid.version>
         <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
-        <fastjson.version>1.2.58</fastjson.version>
     </properties>
 
     <dependencies>
@@ -85,12 +92,6 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
         </dependency>
 
     </dependencies>
