@@ -8,8 +8,9 @@
 欢迎使用和star支持，如使用中碰到问题，可以提出Issue，我会尽力完善该Starter
 
 ### 版本基础
-- Mybatis-Plus: 3.1.1
-- Spring-Boot: 2.1.5.RELEASE
+- Mybatis-Plus: 3.2.0
+- Spring-Boot: 2.2.2.RELEASE
+- Druid: 1.1.16
 
 ### Quick-Start
 
@@ -18,8 +19,8 @@
 - 在`pom.xml`中引入依赖:
 ```xml
 <dependency>
-    <groupId>com.fly</groupId>
-    <artifactId>backend-starter-mybatis</artifactId>
+    <groupId>com.github.flyingglass</groupId>
+    <artifactId>redis-mybatis-plus-starter</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
@@ -138,7 +139,7 @@ public interface TestMapper extends BaseMapper<Test> {
 }
 ```
 
-- 可自定义`RedisTemplate`，控制`Cache`的序列化或者反序列，项目默认会注入`spring-data-redis`默认的`RedisTemplate<Object, Object>`作为可选的`RedisTemplate Bean`（可选）
+- 可自定义`RedisTemplate`，控制`Cache`的序列化或者反序列，项目默认会注入`spring-data-redis`默认的`RedisTemplate`
 
 
 #### 配置多数据源(参考Mybatis-Plus的多数据源)
@@ -170,48 +171,7 @@ public class TestServiceImpl extends ServiceImpl<TestMapper, Test> implements IT
 }
 ```
 
-#### 配置`phoenix`数据源，已针对`phoenix-core`进行`shaded repackage`解决`Springboot`兼容问题
-- 配置`pom.xml`
-```xml
-<dependency>
-    <groupId>com.fly</groupId>
-    <artifactId>phoenix-core-shaded</artifactId>
-    <version>1.0.0</version>
-    <exclusions>
-        <exclusion>
-            <groupId>org.apache.phoenix</groupId>
-            <artifactId>phoenix-core</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
-```
-
-- 配置`application.yml`
-```yml
-spring:
-  datasource:
-    dynamic:
-      primary: master
-      datasource:
-        master:
-          username: ${mysql.username}
-          password: ${mysql.password}
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://${mysql.host}:${mysql.port}/master_db
-
-        phoenix:
-          username:
-          password:
-          url: jdbc:phoenix:znode01,znode02,znode03:2181
-          driver-class-name: org.apache.phoenix.jdbc.PhoenixDriver
-          druid:
-            filters: stat
-            connection-properties:
-              schema: "\"TEST\""
-```
-
 #### 默认的自定义特性
 
 - `Starter`中的`BaseDO`和`DefaultMetaObjectHandler`会默认填充`gmtCreate`和`gmtUpdated`字段，可以自定义`MetaObjectHandler`的`Bean`进行覆盖。
-- 默认的`PhoenixSqlInjector`注入了`Upsert`方法对应`Phoenix`的`upsert`，后续的`Service`继承`PhoenixServiceImpl`即可复用`Mybatis-Plus`的原生的`Save`和`SaveBatch`方法
-- 针对`Phoenix`已向`mybatis-plus`提交`PR: https://github.com/baomidou/mybatis-plus/pull/1946`
+- `Mybatis-Plus`整合`Phoenix`参考`https://github.com/FlyingGlass/phoenix-mybatis-plus-starter`
