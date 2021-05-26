@@ -2,8 +2,6 @@ package com.github.flyingglass.mybatis.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 
@@ -20,9 +18,8 @@ public class DefaultMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         Timestamp ts = new Timestamp(System.currentTimeMillis());
-
-        this.setInsertFieldValByName("gmtCreate", ts, metaObject);
-        this.setInsertFieldValByName("gmtUpdated", ts, metaObject);
+        this.strictInsertFill(metaObject, "gmtCreate", Timestamp.class, ts);
+        this.strictUpdateFill(metaObject, "gmtUpdated", Timestamp.class, ts);
     }
 
     /**
@@ -32,8 +29,6 @@ public class DefaultMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void updateFill(MetaObject metaObject) {
-        Timestamp ts = new Timestamp(System.currentTimeMillis());
-
-        this.setUpdateFieldValByName("gmtUpdated", ts, metaObject);
+        this.strictUpdateFill(metaObject, "gmtUpdated", Timestamp.class, new Timestamp(System.currentTimeMillis()));
     }
 }
