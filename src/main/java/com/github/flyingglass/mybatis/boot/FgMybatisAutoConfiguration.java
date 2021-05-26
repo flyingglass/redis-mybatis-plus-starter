@@ -1,8 +1,11 @@
 package com.github.flyingglass.mybatis.boot;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.github.flyingglass.mybatis.cache.ApplicationContextHolder;
 import com.github.flyingglass.mybatis.config.DefaultMetaObjectHandler;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -21,12 +24,16 @@ import org.springframework.context.annotation.Import;
 @AutoConfigureAfter({MybatisPlusAutoConfiguration.class})
 public class FgMybatisAutoConfiguration {
 
+
     @Bean
     @ConditionalOnMissingBean
-    @ConditionalOnClass(PaginationInterceptor.class)
-    public PaginationInterceptor paginationInterceptor() {
-        return new PaginationInterceptor();
+    @ConditionalOnClass(MybatisPlusInterceptor.class)
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+        return interceptor;
     }
+
 
     @Bean
     @ConditionalOnMissingBean
