@@ -27,6 +27,7 @@
         <url>https://github.com/FlyingGlass/redis-mybatis-plus-starter/tree/master</url>
         <connection>scm:git:git@github.com:FlyingGlass/redis-mybatis-plus-starter.git</connection>
         <developerConnection>scm:git:git@github.com:FlyingGlass/redis-mybatis-plus-starter.git</developerConnection>
+        <tag>${project.version}</tag>
     </scm>
 
     <developers>
